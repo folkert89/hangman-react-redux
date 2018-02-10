@@ -5,8 +5,6 @@ import InputField from './components/inputfield.js'
 import GuessesContainer from './components/guessescontainer.js'
 
 
-const guesses = ['a', 'o', 'k', 'd']
-
 class App extends Component {
   render() {
     return (
@@ -18,7 +16,7 @@ class App extends Component {
         <p className="App-intro">
         </p>
         <InputField content="Hier komt een balk met invoervelden" />
-        <GuessesContainer title='Guesses' guesses={guesses} />
+        <GuessesContainer title='Guesses' />
       </div>
     );
   }

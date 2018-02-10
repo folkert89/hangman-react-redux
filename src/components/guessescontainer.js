@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import './inputfield.css'
 
@@ -22,4 +23,8 @@ class GuessesContainer extends PureComponent {
   }
 }
 
-export default GuessesContainer
+const mapStateToProps = ({ guesses }) => ({
+  guesses
+})
+
+export default connect(mapStateToProps)(GuessesContainer)
