@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import InputField from './components/inputfield.js'
 import GuessesContainer from './components/guessescontainer.js'
-
+import AddGuess from './components/add_guess'
 
 class App extends Component {
   render() {
@@ -15,7 +14,7 @@ class App extends Component {
         </header>
         <p className="App-intro">
         </p>
-        <InputField content="Hier komt een balk met invoervelden" />
+        <AddGuess />
         <GuessesContainer title='Guesses' />
       </div>
     );
