@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import GuessesContainer from './components/guessescontainer.js'
 import AddGuess from './components/add_guess'
+import Hangman from './images/Hangman.png'
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         </header>
         <p className="App-intro">
         </p>
+        <img src={Hangman} alt="hangman" />
         <AddGuess />
         <GuessesContainer title='Guesses' />
       </div>

@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import './inputfield.css'
-
+import Man from './hangman'
 
 let secretWords = ["haribo", "oscaralho", "codaisseur", "trump", "feyenoord", "ireland"]
-let secretWord = secretWords[Math.floor(Math.random() * secretWords.length)]
+let hints = ["Dutch candy", "nickname of dude in our class", "the best coding school", "Fake news", "the best football club", "the country of dark beers"]
+let indexWord = Math.floor(Math.random() * secretWords.length)
+let secretWord = secretWords[indexWord]
+let hint = hints[indexWord]
 
 
 class GuessesContainer extends PureComponent {
@@ -43,13 +45,14 @@ class GuessesContainer extends PureComponent {
     console.log(this)
     return (
       <div>
-        <h1>{secretWord}</h1>
+        <h3>Hint: {hint}</h3>
         <button onClick={this.onButtonClick}>New word</button>
         <h3>The word: {this.showGuess(secretWord, guesses)}</h3>
         <h3>Wrong guesses: {this.wrongGuessCount(secretWord, guesses)}</h3>
-        <h3>Guesses left: {6-this.wrongGuessCount(secretWord, guesses).length}</h3>
+        <h3>You have {6-this.wrongGuessCount(secretWord, guesses).length} lives left</h3>
         <h3>Total guesses played: {guesses.length}</h3>
         <hr/>
+        <Man />
       </div>
     )
   }
