@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import './inputfield.css'
 
 
-let secretWords = ["haribo", "oscaralho", "codaisseur", "trump", "feyenoord"]
+let secretWords = ["haribo", "oscaralho", "codaisseur", "trump", "feyenoord", "ireland"]
 let secretWord = secretWords[Math.floor(Math.random() * secretWords.length)]
 
 
@@ -24,26 +24,35 @@ class GuessesContainer extends PureComponent {
       } else {
         return "_"
       }
-    }).join("")
+    }).join(" ")
   }
-
+  onButtonClick(event){
+    event.preventDefault()
+    window.location.reload()
+  }
 
   render() {
 
     const {guesses} = this.props
-    
+
+    if (secretWord===this.showGuess(secretWord, guesses).replace(/\s/g, '')){
+        alert(`you are the winner!! you won the game in ${guesses.length} guesses`)
+
+      }
+
     console.log(this)
     return (
       <div>
         <h1>{secretWord}</h1>
+        <button onClick={this.onButtonClick}>New word</button>
         <h3>The word: {this.showGuess(secretWord, guesses)}</h3>
         <h3>Wrong guesses: {this.wrongGuessCount(secretWord, guesses)}</h3>
         <h3>Guesses left: {6-this.wrongGuessCount(secretWord, guesses).length}</h3>
+        <h3>Total guesses played: {guesses.length}</h3>
         <hr/>
       </div>
     )
   }
-
 }
 
 const mapStateToProps = ({ guesses }) => ({
