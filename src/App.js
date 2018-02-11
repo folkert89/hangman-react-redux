@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import GuessesContainer from './components/guessescontainer.js'
 import AddGuess from './components/add_guess'
-import Hangman from './images/Hangman.png'
+import Hangman from './images/hangman.png'
 
 class App extends Component {
   render() {

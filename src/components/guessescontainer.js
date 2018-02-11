@@ -38,9 +38,14 @@ class GuessesContainer extends PureComponent {
     const {guesses} = this.props
 
     if (secretWord===this.showGuess(secretWord, guesses).replace(/\s/g, '')){
-        alert(`you are the winner!! you won the game in ${guesses.length} guesses`)
+      alert(`you are the winner!! you won the game in ${guesses.length} guesses`)
+      window.location.reload()
+    }
 
-      }
+    if (this.wrongGuessCount(secretWord, guesses).length===6){
+      alert('You lost!!!')
+      window.location.reload()
+    }
 
     console.log(this)
     return (
@@ -49,10 +54,10 @@ class GuessesContainer extends PureComponent {
         <button onClick={this.onButtonClick}>New word</button>
         <h3>The word: {this.showGuess(secretWord, guesses)}</h3>
         <h3>Wrong guesses: {this.wrongGuessCount(secretWord, guesses)}</h3>
+        <Man level={this.wrongGuessCount(secretWord, guesses).length}/>
         <h3>You have {6-this.wrongGuessCount(secretWord, guesses).length} lives left</h3>
         <h3>Total guesses played: {guesses.length}</h3>
         <hr/>
-        <Man />
       </div>
     )
   }
