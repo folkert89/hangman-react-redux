@@ -12,9 +12,7 @@
 // }
 
 
-const guessesDefault = ['a', 'o', 'k', 'd']
-
-const guesses = (state = guessesDefault, action) => {
+const guesses = (state = [], action) => {
   switch (action.type) {
     case 'ADD_GUESS':
       return [
