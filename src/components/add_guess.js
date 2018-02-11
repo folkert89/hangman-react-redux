@@ -12,9 +12,18 @@ let AddGuess = ({ dispatch }) => {
           e.preventDefault()
           if (!input.value.trim()) {
             return
+          } else if (input.value.length>1){
+            alert('Please give only one value')
+            input.value = ''
+            return
+          } else if (!/^[a-zA-Z]/.test(input.value)) {
+            alert('Please give only an alphabetic value')
+            input.value = ''
+            return
+          } else {
+            dispatch(addGuess(input.value.toLowerCase()))
+            input.value = ''
           }
-          dispatch(addGuess(input.value))
-          input.value = ''
         }}
       >
         <input
